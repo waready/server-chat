@@ -49,9 +49,10 @@ io.on('connection', (socket)=>{
   });
 
   socket.on('disconnect',()=>{
+    console.log('LEFT')
     if(users[socket.username]){
        delete users[socket.username];
-       socket.broadcast.emit('USER_LETF',{
+       socket.broadcast.emit('USER_LEFT',{
          username: socket.username,
          users
        });
